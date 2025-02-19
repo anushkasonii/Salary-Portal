@@ -36,7 +36,7 @@ function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceDat
     setAttendanceData(
       staffData.map(staff => ({
         id: staff.id,
-        presentDays: Math.floor(Math.random() * (30 - 25 + 1)) + 25,
+        presentDays: Math.floor(Math.random() * (28 - 24 + 1)) + 24,
         salaryProcessed: false,
       }))
     );

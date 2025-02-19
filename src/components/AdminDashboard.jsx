@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Paper,
   Table,
@@ -13,19 +13,21 @@ import {
   Box,
   MenuItem,
   Select,
-} from '@mui/material';
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 
 function AdminDashboard({ staffData, setStaffData }) {
   const [newStaff, setNewStaff] = useState({
-    name: '',
-    yearlySalary: '',
-    monthlySalary: '',
+    name: "",
+    yearlySalary: "",
+    monthlySalary: "",
     leavesAllowed: 0,
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'yearlySalary') {
+    if (name === "yearlySalary") {
       setNewStaff({
         ...newStaff,
         yearlySalary: value,
@@ -44,9 +46,9 @@ function AdminDashboard({ staffData, setStaffData }) {
     if (newStaff.name && newStaff.yearlySalary) {
       setStaffData([...staffData, { ...newStaff, id: Date.now() }]);
       setNewStaff({
-        name: '',
-        yearlySalary: '',
-        monthlySalary: '',
+        name: "",
+        yearlySalary: "",
+        monthlySalary: "",
         leavesAllowed: 0,
       });
     }
@@ -60,7 +62,13 @@ function AdminDashboard({ staffData, setStaffData }) {
 
       <Paper sx={{ p: 3, mb: 4 }}>
         <form onSubmit={handleSubmit}>
-          <Box sx={{ display: 'grid', gap: 2, gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+          <Box
+            sx={{
+              display: "grid",
+              gap: 2,
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            }}
+          >
             <TextField
               label="Staff Name"
               name="name"
@@ -84,22 +92,47 @@ function AdminDashboard({ staffData, setStaffData }) {
               disabled
               fullWidth
             />
-            <Select
-              value={newStaff.leavesAllowed}
-              name="leavesAllowed"
-              onChange={handleInputChange}
-              fullWidth
-              label="Leaves Allowed (Monthly)"
-            >
-              {[...Array(32)].map((_, i) => (
-                <MenuItem key={i} value={i}>{i}</MenuItem>
-              ))}
-            </Select>
+           
+            <FormControl fullWidth>
+              <InputLabel id="leaves-allowed-label">
+                Leaves Allowed (Monthly)
+              </InputLabel>
+              <Select
+                labelId="leaves-allowed-label"
+                name="leavesAllowed"
+                id= "leaves-allowed-monthly"
+                value={newStaff.leavesAllowed}
+                label= "Leaves Allowed (Monthly)"
+                onChange={handleInputChange}
+              >
+                {[...Array(32)].map((_, i) => (
+                  <MenuItem key={i} value={i}>
+                    {i}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Box>
           <Button
-            variant="contained"
+            variant="outlined"
             type="submit"
-            sx={{ mt: 2 }}
+            sx={{
+              borderRadius: "20px",
+              marginBottom: "15px",
+              marginRight: "20px",
+              marginTop: "15px",
+              borderColor: "#1FB892",
+              color: "#1FB892",
+              fontSize: "16px",
+              backgroundColor: "white",
+              width: "130px",
+              alignItems: "center",
+              "&:hover": {
+                borderColor: "#1FB892",
+                backgroundColor: "#1FB892",
+                color: "white",
+              },
+            }}
           >
             Add Staff
           </Button>
