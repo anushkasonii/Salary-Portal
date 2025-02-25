@@ -19,10 +19,10 @@ import {
 } from '@mui/material';
 
 const months = [
-  { name: 'January', workingDays: 27, holidays: 4 },
-  { name: 'February', workingDays: 25, holidays: 3 },
-  { name: 'March', workingDays: 27, holidays: 4 },
-  { name: 'April', workingDays: 28, holidays: 2 },
+  { name: 'January', workingDays: 23, holidays: 4, weekend :4 },
+  { name: 'February', workingDays: 21, holidays: 3,weekend :4 },
+  { name: 'March', workingDays: 22, holidays: 4,weekend :5 },
+  { name: 'April', workingDays: 24, holidays: 2, weekend :4 },
 ];
 
 function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceData }) {
@@ -141,6 +141,7 @@ function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceDat
             <TableRow sx={{bgcolor:"#1FB892"}}>
               <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Staff Name</TableCell>
               <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Total Working Days</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Weekend</TableCell>
               <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Holidays</TableCell>
               <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Total Days (Present)</TableCell>
               <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Leaves</TableCell>
@@ -162,6 +163,7 @@ function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceDat
                 <TableRow key={staff.id}>
                   <TableCell>{staff.name}</TableCell>
                   <TableCell>{currentMonth.workingDays}</TableCell>
+                  <TableCell>{currentMonth.holidays}</TableCell>
                   <TableCell>{currentMonth.holidays}</TableCell>
                   <TableCell>{attendance.presentDays}</TableCell>
                   <TableCell>
