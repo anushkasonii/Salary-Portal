@@ -117,7 +117,7 @@ function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceDat
 
   return (
     <Box sx={{ py: 4 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color:"#53389E"}}>
         Staff Salary Dashboard
       </Typography>
 
@@ -138,14 +138,14 @@ function StaffSalary({ staffData, setStaffData, attendanceData, setAttendanceDat
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell>Staff Name</TableCell>
-              <TableCell>Total Working Days</TableCell>
-              <TableCell>Holidays</TableCell>
-              <TableCell>Total Days (Present)</TableCell>
-              <TableCell>Leaves</TableCell>
-              <TableCell>Salary</TableCell>
-              <TableCell>Action</TableCell>
+            <TableRow sx={{bgcolor:"#1FB892"}}>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Staff Name</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Total Working Days</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Holidays</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Total Days (Present)</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Leaves</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Salary</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

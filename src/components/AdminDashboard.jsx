@@ -56,7 +56,7 @@ function AdminDashboard({ staffData, setStaffData }) {
 
   return (
     <Box sx={{ py: 4 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color:"#53389E"}}>
         Admin Dashboard
       </Typography>
 
@@ -142,11 +142,11 @@ function AdminDashboard({ staffData, setStaffData }) {
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell>Staff Name</TableCell>
-              <TableCell>Yearly Salary</TableCell>
-              <TableCell>Monthly Salary</TableCell>
-              <TableCell>Leaves Allowed</TableCell>
+            <TableRow sx={{bgcolor:"#1FB892"}}>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Staff Name</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Yearly Salary</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Monthly Salary</TableCell>
+              <TableCell sx={{color:"white", fontSize:'16px', fontWeight:'bold'}}>Leaves Allowed</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
