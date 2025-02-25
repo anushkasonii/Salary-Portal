@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import AdminDashboard from "./components/AdminDashboard";
 import StaffSalary from "./components/StaffSalary";
+import StaffPortal from "./components/StaffPortal";
 
 function NavigationBar() {
   const location = useLocation();
@@ -62,6 +63,17 @@ function NavigationBar() {
                 "&.Mui-selected": { color: "#53389E", fontWeight: "bold" },
               }}
             />
+            <Tab
+              label="Staff Portal"
+              component={Link}
+              to="/staff-portal"
+              sx={{
+                fontSize:'15px',
+                color: "#53389E",
+                fontWeight: "500",
+                "&.Mui-selected": { color: "#53389E", fontWeight: "bold" },
+              }}
+            />
           </Tabs>
          
         </Box>
@@ -91,7 +103,7 @@ function App() {
         ...existingAttendance,
         ...newStaffIds.map((staff) => ({
           id: staff.id,
-          presentDays: Math.floor(Math.random() * (30 - 25 + 1)) + 25,
+          presentDays: Math.floor(Math.random() * (24 - 20 + 1)) + 20,
           salaryProcessed: false,
         })),
       ];
@@ -123,6 +135,13 @@ function App() {
                   setStaffData={setStaffData}
                   attendanceData={attendanceData}
                   setAttendanceData={setAttendanceData}
+                />
+              }
+            />
+            <Route
+              path="/staff-portal"
+              element={
+                <StaffPortal
                 />
               }
             />
