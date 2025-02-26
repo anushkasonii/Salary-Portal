@@ -18,6 +18,7 @@ import {
 import AdminDashboard from "./components/AdminDashboard";
 import StaffSalary from "./components/StaffSalary";
 import StaffPortal from "./components/StaffPortal";
+import ViewAll from "./components/ViewAll";
 
 function NavigationBar() {
   const location = useLocation();
@@ -26,6 +27,8 @@ function NavigationBar() {
   useEffect(() => {
     if (location.pathname === "/") setSelectedTab(0);
     else if (location.pathname === "/staff-salary") setSelectedTab(1);
+    else if (location.pathname === "/staff-portal") setSelectedTab(2);
+    else if (location.pathname === "/view-all") setSelectedTab(3);
   }, [location]);
 
   return (
@@ -74,6 +77,7 @@ function NavigationBar() {
                 "&.Mui-selected": { color: "#53389E", fontWeight: "bold" },
               }}
             />
+            
           </Tabs>
          
         </Box>
@@ -141,8 +145,13 @@ function App() {
             <Route
               path="/staff-portal"
               element={
-                <StaffPortal
-                />
+                <StaffPortal />
+              }
+            />
+            <Route
+              path="/view-all"
+              element={
+                <ViewAll />
               }
             />
           </Routes>

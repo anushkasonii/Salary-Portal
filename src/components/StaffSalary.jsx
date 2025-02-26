@@ -46,7 +46,6 @@ function StaffSalary({
       }))
     );
   };
- 
 
   const calculateLeaves = (presentDays, workingDays) => {
     return workingDays - presentDays;
@@ -148,41 +147,49 @@ function StaffSalary({
           <TableHead>
             <TableRow sx={{ bgcolor: "#1FB892" }}>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Staff Name
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Total Working Days
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Weekend
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Holidays
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Total Days (Present)
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Leaves
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Salary
               </TableCell>
               <TableCell
+                align="center"
                 sx={{ color: "white", fontSize: "16px", fontWeight: "bold" }}
               >
                 Action
@@ -210,12 +217,12 @@ function StaffSalary({
 
               return (
                 <TableRow key={staff.id}>
-                  <TableCell>{staff.name}</TableCell>
-                  <TableCell>{currentMonth.workingDays}</TableCell>
-                  <TableCell>{currentMonth.holidays}</TableCell>
-                  <TableCell>{currentMonth.holidays}</TableCell>
-                  <TableCell>{attendance.presentDays}</TableCell>
-                  <TableCell>
+                  <TableCell align="center">{staff.name}</TableCell>
+                  <TableCell align="center">{currentMonth.workingDays}</TableCell>
+                  <TableCell align="center">{currentMonth.holidays}</TableCell>
+                  <TableCell align="center">{currentMonth.holidays}</TableCell>
+                  <TableCell align="center">{attendance.presentDays}</TableCell>
+                  <TableCell align="center">
                     {leaves}
                     {extraLeaves > 0 && (
                       <Typography
@@ -232,8 +239,8 @@ function StaffSalary({
                       </Typography>
                     )}
                   </TableCell>
-                  <TableCell>{staff.monthlySalary}</TableCell>
-                  <TableCell>
+                  <TableCell align="center">{staff.monthlySalary}</TableCell>
+                  <TableCell align="center">
                     {showActions ? (
                       <Box sx={{ display: "flex", gap: 1 }}>
                         <Button

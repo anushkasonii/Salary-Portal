@@ -1,25 +1,22 @@
 import * as React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
   Box,
   TextField,
+  Button,
+  Typography,
 } from "@mui/material";
 
 function StaffPortal() {
   const [formData, setFormData] = useState({
-    month: "January",
-    presentDays: 23,
-    leaves: 1,
-    salary: "",
+    totalSalary: 600000,
+    monthlySalary: 50000,
+    leavesAllowed: 2,
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,6 +24,10 @@ function StaffPortal() {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleViewAllClick = () => {
+    navigate('/view-all');
   };
 
   return (
@@ -84,8 +85,10 @@ function StaffPortal() {
             <div>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Month"
-                value={formData.month}
+                label="Total Salary"
+                name="totalSalary"
+                value={formData.totalSalary}
+                onChange={handleInputChange}
                 InputProps={{
                   sx: {
                     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
@@ -126,50 +129,10 @@ function StaffPortal() {
             <div>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Total Days (Present)"
-                value={formData.presentDays}
-                InputProps={{
-                  sx: {
-                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                      borderColor: "#1FB892", // Border color when focused
-                    },
-                    "& .MuiInputBase-input": {
-                      color: "#000000", // Default text color
-                    },
-                    "&.Mui-focused .MuiInputBase-input": {
-                      color: "#000000", // Text color when focused
-                    },
-                  },
-                }}
-                InputLabelProps={{
-                  sx: {
-                    "&.Mui-focused": {
-                      color: "#1FB892", // Label color when focused
-                    },
-                  },
-                }}
-                disabled
-              />
-            </div>
-          </Box>
-
-          <Box
-            component="form"
-            sx={{
-              "& .MuiTextField-root": {
-                m: 1,
-                width: "61.5ch",
-                marginLeft: 3.5,
-              },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <div>
-              <TextField
-                id="outlined-multiline-flexible"
-                label="Leaves"
-                value={formData.leaves}
+                label="Monthly Salary"
+                name="monthlySalary"
+                value={formData.monthlySalary}
+                onChange={handleInputChange}
                 InputProps={{
                   sx: {
                     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
@@ -211,9 +174,9 @@ function StaffPortal() {
             <div>
               <TextField
                 id="outlined-multiline-flexible"
-                label="Salary"
-                name="salary"
-                value={formData.salary}
+                label="Leaves Allowed"
+                name="leavesAllowed"
+                value={formData.leavesAllowed}
                 onChange={handleInputChange}
                 InputProps={{
                   sx: {
@@ -235,9 +198,33 @@ function StaffPortal() {
                     },
                   },
                 }}
+                disabled
               />
             </div>
           </Box>
+          <Button
+            variant="outlined"
+            sx={{
+              borderRadius: "20px",
+              marginBottom: "15px",
+              marginLeft: "25px",
+              marginTop: "15px",
+              borderColor: "#1FB892",
+              color: "#1FB892",
+              fontSize: "16px",
+              backgroundColor: "white",
+              width: "130px",
+              alignItems: "center",
+              "&:hover": {
+                borderColor: "#1FB892",
+                backgroundColor: "#1FB892",
+                color: "white",
+              },
+            }}
+            onClick={handleViewAllClick}
+          >
+            View All
+          </Button>
         </div>
       </div>
     </Box>
